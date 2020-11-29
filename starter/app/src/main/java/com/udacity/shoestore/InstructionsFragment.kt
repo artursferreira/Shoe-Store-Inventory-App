@@ -32,7 +32,7 @@ class InstructionsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.button.setOnClickListener {
-          //  findNavController().navigate(Instr.)
+            findNavController().navigate(InstructionsFragmentDirections.actionInstructionsFragmentToShoeListFragment())
         }
     }
 }

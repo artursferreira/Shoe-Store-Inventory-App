@@ -1,9 +1,13 @@
 <resources>
     <string name="app_name">ShoeStore</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="button_login">Login</string>
     <string name="button_create_account">Create Account</string>
     <string name="hint_e_mail">E-mail</string>
     <string name="hint_password">Password</string>
+    <string name="welcome_title">Welcome to the ShoeStore!</string>
+    <string name="welcome_subtitle">Here you can find your next favorite shoe.</string>
+    <string name="continue_button">Continue</string>
+    <string name="instructions_title">Instructions</string>
+    <string name="instructions_description">Click Next to navigate to the next page. You can scroll through the list to look at the whole selection of shoes. You can also add a shoe to the list.</string>
+    <string name="next_button">Next</string>
 </resources>

@@ -11,8 +11,9 @@
 
         <EditText
             android:id="@+id/editTextTextEmailAddress"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_default"
             android:ems="10"
             android:hint="@string/hint_e_mail"
             android:inputType="textEmailAddress"
@@ -23,8 +24,9 @@
 
         <EditText
             android:id="@+id/editTextTextPassword"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_default"
             android:layout_marginTop="24dp"
             android:ems="10"
             android:hint="@string/hint_password"
@@ -49,6 +51,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/button_create_account"
+            android:layout_marginEnd="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/buttonLogin"
             app:layout_constraintHorizontal_chainStyle="packed"
