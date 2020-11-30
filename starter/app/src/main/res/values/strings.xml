@@ -3,7 +3,7 @@
     <string name="login_label">Login</string>
     <string name="welcome_label">Welcome</string>
     <string name="instructions_label">Instructions</string>
-    <string name="shoelist__label">ShoeList</string>
+    <string name="shoelist_label">ShoeList</string>
     <string name="shoe_detail_label">Shoe Detail</string>
     <string name="button_login">Login</string>
     <string name="button_create_account">Create Account</string>

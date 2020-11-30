@@ -5,9 +5,11 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.ShoeDetailFragmentBinding
+import com.udacity.shoestore.models.Shoe
 
 class ShoeDetailFragment : Fragment() {
 
@@ -29,11 +31,6 @@ class ShoeDetailFragment : Fragment() {
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-
-    }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
@@ -41,7 +38,30 @@ class ShoeDetailFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return NavigationUI.onNavDestinationSelected(item, requireView().findNavController())
-                || super.onOptionsItemSelected(item)
+        if (item.itemId == R.id.shoeListFragment) {
+            navigateToShoeList()
+        }
+
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun navigateToShoeList() {
+        val shoeSize = if (binding.editTextTextShoeSize.text.toString()
+                .isEmpty()
+        ) 0.0 else binding.editTextTextShoeSize.text.toString().toDouble()
+
+        val shoe = Shoe(
+            binding.editTextTextName.text.toString(),
+            shoeSize,
+            binding.editTextTextCompany.text.toString(),
+            binding.editTextTextDescription.text.toString()
+        )
+
+        findNavController().navigate(
+            ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListFragment(
+                shoe
+            )
+        )
+
     }
 }

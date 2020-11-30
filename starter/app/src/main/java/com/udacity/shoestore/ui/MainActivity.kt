@@ -6,6 +6,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
+import androidx.navigation.ui.setupWithNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.ActivityMainBinding
 import timber.log.Timber
@@ -22,8 +23,9 @@ class MainActivity : AppCompatActivity() {
         Timber.plant(Timber.DebugTree())
 
         val navController = findNavController(R.id.navHostFragment)
-        NavigationUI.setupWithNavController(binding.toolbar, navController)
         appBarConfiguration = AppBarConfiguration(navController.graph)
+        setSupportActionBar(binding.toolbar)
+        binding.toolbar.setupWithNavController( navController, appBarConfiguration)
     }
 
     override fun onSupportNavigateUp(): Boolean {
