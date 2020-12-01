@@ -1,3 +1,29 @@
 <resources>
     <string name="app_name">ShoeStore</string>
+    <string name="login_label">Login</string>
+    <string name="welcome_label">Welcome</string>
+    <string name="instructions_label">Instructions</string>
+    <string name="shoelist_label">ShoeList</string>
+    <string name="shoe_detail_label">Shoe Detail</string>
+    <string name="button_login">Login</string>
+    <string name="button_create_account">Create Account</string>
+    <string name="hint_e_mail">E-mail</string>
+    <string name="hint_password">Password</string>
+    <string name="welcome_title">Welcome to the ShoeStore!</string>
+    <string name="welcome_subtitle">Here you can find your next favorite shoe.</string>
+    <string name="continue_button">Continue</string>
+    <string name="instructions_title">Instructions</string>
+    <string name="instructions_description">Click Next to navigate to the next page. You can scroll through the list to look at the whole selection of shoes. You can also add a shoe to the list.</string>
+    <string name="next_button">Next</string>
+    <string name="save">Save</string>
+    <string name="shoe_name">Shoe Name</string>
+    <string name="company">Company</string>
+    <string name="shoe_size">Shoe Size</string>
+    <string name="description">Description</string>
+    <string name="logout">Logout</string>
+    <string name="empty_shoe_warning">Fields are empty. Please fill the them to save the shoe.</string>
+    <string name="name_format">Name: %s</string>
+    <string name="company_format">Company: %s</string>
+    <string name="size_format">Shoe Size: %s</string>
+    <string name="description_format">Description: %s</string>
 </resources>
