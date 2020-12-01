@@ -14,9 +14,9 @@ class ShoeViewModel : ViewModel() {
     val shoes: LiveData<List<Shoe>>
         get() = _shoes
 
-    private val _detailReturnToList = MutableLiveData<Boolean>()
-    val detailReturnToList: LiveData<Boolean>
-        get() = _detailReturnToList
+    private val _shouldReturnToList = MutableLiveData<Boolean>()
+    val shouldReturnToList: LiveData<Boolean>
+        get() = _shouldReturnToList
 
 
     private val _shouldShowWarning = MutableLiveData<Boolean>()
@@ -28,14 +28,14 @@ class ShoeViewModel : ViewModel() {
             shoesList.add(shoeItem)
             _shoes.value = shoesList
             shoeItem = Shoe()
-            _detailReturnToList.value = true
+            _shouldReturnToList.value = true
         } else {
             _shouldShowWarning.value = true
         }
     }
 
     fun onShoeAdded() {
-        _detailReturnToList.value = false
+        _shouldReturnToList.value = false
     }
 
     fun onWarningShowed() {
