@@ -22,4 +22,8 @@
     <string name="description">Description</string>
     <string name="logout">Logout</string>
     <string name="empty_shoe_warning">Fields are empty. Please fill the them to save the shoe.</string>
+    <string name="name_format">Name: %s</string>
+    <string name="company_format">Company: %s</string>
+    <string name="size_format">Shoe Size: %s</string>
+    <string name="description_format">Description: %s</string>
 </resources>

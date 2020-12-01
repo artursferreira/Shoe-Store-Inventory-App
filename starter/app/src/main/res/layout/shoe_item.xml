@@ -2,16 +2,16 @@
 <layout>
 
     <data>
+
         <variable
             name="shoe"
             type="com.udacity.shoestore.models.Shoe" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/name_text"
@@ -19,45 +19,43 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_default"
             android:layout_marginTop="@dimen/margin_default"
-            android:text="@{shoe.name}"
+            android:text="@{@string/name_format(shoe.name)}"
             android:textColor="@android:color/black"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/company_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_default"
-            android:text="@{shoe.company}"
+            android:text="@{@string/company_format(shoe.company)}"
             android:textColor="@android:color/black"
-            android:textSize="18sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/name_text"
-            app:layout_constraintStart_toEndOf="@+id/name_text" />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/size_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_default"
-            android:text="@{String.valueOf(shoe.size)}"
+            android:text="@{@string/size_format(shoe.size)}"
             android:textColor="@android:color/black"
-            android:textSize="18sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/company_text"
-            app:layout_constraintStart_toEndOf="@+id/company_text" />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/description_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_default"
-            android:text="@{shoe.description}"
+            android:layout_marginStart="@dimen/margin_default"
+            android:layout_marginBottom="@dimen/margin_default"
+            android:text="@{@string/description_format(shoe.description)}"
             android:textColor="@android:color/black"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="@+id/name_text"
-            app:layout_constraintTop_toBottomOf="@+id/name_text" />
+            android:textSize="18sp" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.3dp"
+            android:background="@android:color/black" />
+
+    </LinearLayout>
 
 </layout>
