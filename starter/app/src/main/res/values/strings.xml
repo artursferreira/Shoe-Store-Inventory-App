@@ -16,4 +16,8 @@
     <string name="instructions_description">Click Next to navigate to the next page. You can scroll through the list to look at the whole selection of shoes. You can also add a shoe to the list.</string>
     <string name="next_button">Next</string>
     <string name="save">Save</string>
+    <string name="shoe_name">Shoe Name</string>
+    <string name="company">Company</string>
+    <string name="shoe_size">Shoe Size</string>
+    <string name="description">Description</string>
 </resources>

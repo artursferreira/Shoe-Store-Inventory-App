@@ -6,14 +6,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
 import com.udacity.shoestore.R
+import com.udacity.shoestore.viewmodel.ShoeViewModel
 import com.udacity.shoestore.databinding.ShoeListFragmentBinding
+import com.udacity.shoestore.databinding.ShoeViewBinding
 
 class ShoeListFragment : Fragment() {
 
     private lateinit var binding: ShoeListFragmentBinding
+
+    private val shoeViewModel: ShoeViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,7 +32,17 @@ class ShoeListFragment : Fragment() {
             false
         )
 
-        val shoeListFragmentArgs by navArgs<ShoeListFragmentArgs>()
+        binding.lifecycleOwner = viewLifecycleOwner
+
+        shoeViewModel.shoes.observe(viewLifecycleOwner, Observer { list ->
+            list.forEach {
+                val shoeBinding: ShoeViewBinding =
+                    DataBindingUtil.inflate(inflater, R.layout.shoe_view, container, false)
+                shoeBinding.shoe = it
+                binding.linearLayout.addView(shoeBinding.root)
+            }
+
+        })
 
         return binding.root
     }

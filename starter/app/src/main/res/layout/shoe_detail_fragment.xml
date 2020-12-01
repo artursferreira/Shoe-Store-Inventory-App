@@ -3,6 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+
+    <data>
+        <variable
+            name="shoeViewModel"
+            type="com.udacity.shoestore.viewmodel.ShoeViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -13,7 +20,7 @@
             android:id="@+id/textViewName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Shoe Name"
+            android:text="@string/shoe_name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -24,6 +31,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
+            android:text="@={shoeViewModel.shoeItem.name}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewName" />
@@ -32,7 +40,7 @@
             android:id="@+id/textViewCompany"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Company"
+            android:text="@string/company"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/editTextTextName" />
@@ -43,6 +51,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
+            android:text="@={shoeViewModel.shoeItem.company}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewCompany" />
@@ -51,7 +60,7 @@
             android:id="@+id/textViewShoeSize"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Shoe Size"
+            android:text="@string/shoe_size"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/editTextTextCompany" />
@@ -62,6 +71,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="numberSigned"
+            android:text="@={shoeViewModel.shoeItem.size}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewShoeSize" />
@@ -70,7 +80,7 @@
             android:id="@+id/textViewDescription"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Description"
+            android:text="@string/description"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/editTextTextShoeSize" />
@@ -81,6 +91,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="text"
+            android:text="@={shoeViewModel.shoeItem.description}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewDescription" />

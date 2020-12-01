@@ -4,16 +4,18 @@ import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
-import androidx.navigation.findNavController
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.NavigationUI
 import com.udacity.shoestore.R
+import com.udacity.shoestore.viewmodel.ShoeViewModel
 import com.udacity.shoestore.databinding.ShoeDetailFragmentBinding
-import com.udacity.shoestore.models.Shoe
 
 class ShoeDetailFragment : Fragment() {
 
     private lateinit var binding: ShoeDetailFragmentBinding
+
+    private val shoeViewModel : ShoeViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,6 +30,16 @@ class ShoeDetailFragment : Fragment() {
         )
         setHasOptionsMenu(true)
 
+        binding.shoeViewModel = shoeViewModel
+        binding.lifecycleOwner = viewLifecycleOwner
+
+        shoeViewModel.detailReturnToList.observe(viewLifecycleOwner, {
+            if (it) {
+                shoeViewModel.onShoeAdded()
+                findNavController().navigateUp()
+            }
+        })
+
         return binding.root
     }
 
@@ -39,29 +51,10 @@ class ShoeDetailFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.shoeListFragment) {
-            navigateToShoeList()
+            shoeViewModel.addShoe()
         }
 
         return super.onOptionsItemSelected(item)
     }
 
-    private fun navigateToShoeList() {
-        val shoeSize = if (binding.editTextTextShoeSize.text.toString()
-                .isEmpty()
-        ) 0.0 else binding.editTextTextShoeSize.text.toString().toDouble()
-
-        val shoe = Shoe(
-            binding.editTextTextName.text.toString(),
-            shoeSize,
-            binding.editTextTextCompany.text.toString(),
-            binding.editTextTextDescription.text.toString()
-        )
-
-        findNavController().navigate(
-            ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListFragment(
-                shoe
-            )
-        )
-
-    }
 }
