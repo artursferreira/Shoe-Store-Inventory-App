@@ -14,7 +14,7 @@ import timber.log.Timber
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private lateinit var appBarConfiguration : AppBarConfiguration
+    private lateinit var appBarConfiguration: AppBarConfiguration
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.navHostFragment)
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setSupportActionBar(binding.toolbar)
-        binding.toolbar.setupWithNavController( navController, appBarConfiguration)
+        binding.toolbar.setupWithNavController(navController, appBarConfiguration)
     }
 
     override fun onSupportNavigateUp(): Boolean {

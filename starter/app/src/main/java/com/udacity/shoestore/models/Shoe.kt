@@ -12,6 +12,7 @@ data class Shoe(
     val images: List<String> = mutableListOf()
 ) : Parcelable {
 
+    //all fields are mandatory
     fun isComplete(): Boolean {
         return name.isNotEmpty() && size.isNotEmpty() && company.isNotEmpty() && description.isNotEmpty()
     }

@@ -41,7 +41,7 @@ class ShoeDetailFragment : Fragment() {
             }
         })
 
-        shoeViewModel.detailReturnToList.observe(viewLifecycleOwner, {
+        shoeViewModel.shouldReturnToList.observe(viewLifecycleOwner, {
             if (it) {
                 shoeViewModel.onShoeAdded()
                 findNavController().navigateUp()
