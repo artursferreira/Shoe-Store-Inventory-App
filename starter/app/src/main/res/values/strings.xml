@@ -20,4 +20,6 @@
     <string name="company">Company</string>
     <string name="shoe_size">Shoe Size</string>
     <string name="description">Description</string>
+    <string name="logout">Logout</string>
+    <string name="empty_shoe_warning">Fields are empty. Please fill the them to save the shoe.</string>
 </resources>

@@ -2,6 +2,7 @@ package com.udacity.shoestore.ui
 
 import android.os.Bundle
 import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
@@ -33,6 +34,13 @@ class ShoeDetailFragment : Fragment() {
         binding.shoeViewModel = shoeViewModel
         binding.lifecycleOwner = viewLifecycleOwner
 
+        shoeViewModel.shouldShowWarning.observe(viewLifecycleOwner, {
+            if (it) {
+                Toast.makeText(requireContext(), getString(R.string.empty_shoe_warning), Toast.LENGTH_SHORT).show()
+                shoeViewModel.onWarningShowed()
+            }
+        })
+
         shoeViewModel.detailReturnToList.observe(viewLifecycleOwner, {
             if (it) {
                 shoeViewModel.onShoeAdded()
@@ -51,10 +59,14 @@ class ShoeDetailFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.shoeListFragment) {
-            shoeViewModel.addShoe()
+           addShoe()
         }
 
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun addShoe() {
+        shoeViewModel.addShoe()
     }
 
 }

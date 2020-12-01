@@ -10,4 +10,9 @@ data class Shoe(
     var company: String = "",
     var description: String = "",
     val images: List<String> = mutableListOf()
-) : Parcelable
+) : Parcelable {
+
+    fun isComplete(): Boolean {
+        return name.isNotEmpty() && size.isNotEmpty() && company.isNotEmpty() && description.isNotEmpty()
+    }
+}

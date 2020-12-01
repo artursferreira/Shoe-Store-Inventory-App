@@ -1,10 +1,8 @@
 package com.udacity.shoestore.ui
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
@@ -32,12 +30,18 @@ class ShoeListFragment : Fragment() {
             false
         )
 
+        setHasOptionsMenu(true)
+
         binding.lifecycleOwner = viewLifecycleOwner
+
+        binding.fabAddShoe.setOnClickListener {
+            findNavController().navigate(ShoeListFragmentDirections.actionShoeListFragmentToShoeDetailFragment())
+        }
 
         shoeViewModel.shoes.observe(viewLifecycleOwner, Observer { list ->
             list.forEach {
                 val shoeBinding: ShoeViewBinding =
-                    DataBindingUtil.inflate(inflater, R.layout.shoe_view, container, false)
+                    DataBindingUtil.inflate(inflater, R.layout.shoe_item, container, false)
                 shoeBinding.shoe = it
                 binding.linearLayout.addView(shoeBinding.root)
             }
@@ -47,12 +51,16 @@ class ShoeListFragment : Fragment() {
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.shoe_list_menu, menu)
+    }
 
-        binding.fabAddShoe.setOnClickListener {
-            findNavController().navigate(ShoeListFragmentDirections.actionShoeListFragmentToShoeDetailFragment())
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.logout) {
+            findNavController().navigate(ShoeListFragmentDirections.actionShoeListFragmentToLoginFragment())
         }
 
+        return super.onOptionsItemSelected(item)
     }
 }
